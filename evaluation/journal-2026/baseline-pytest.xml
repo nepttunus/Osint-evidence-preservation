@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="15" time="1.981" timestamp="2026-10-06T09:07:33.860675-04:00" hostname="fed4af57e119"><testcase classname="tests.test_capture_artifacts" name="test_capture_creates_http_and_console_artifacts" time="0.506"><failure message="playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell&#10;╔════════════════════════════════════════════════════════════╗&#10;║ Looks like Playwright was just installed or updated.       ║&#10;║ Please run the following command to download new browsers: ║&#10;║                                                            ║&#10;║     playwright install                                     ║&#10;║                                                            ║&#10;║ &lt;3 Playwright Team                                         ║&#10;╚════════════════════════════════════════════════════════════╝">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_http_and_0')
+
+    def test_capture_creates_http_and_console_artifacts(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+&gt;           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_capture_artifacts.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fa5a2209190&gt;
+cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fa5a2242480&gt;
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ &lt;3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error</failure></testcase><testcase classname="tests.test_chain_of_custody" name="test_chain_of_custody_is_created_and_listed_in_manifest" time="0.006" /><testcase classname="tests.test_custody_actor_events" name="test_cli_capture_accepts_actor_argument" time="0.001" /><testcase classname="tests.test_custody_actor_events" name="test_chain_of_custody_records_actor_and_extended_events" time="0.001" /><testcase classname="tests.test_hashing.TestHashing" name="test_sha256_file_matches_hashlib" time="0.001" /><testcase classname="tests.test_manifest" name="test_build_manifest_includes_richer_file_metadata" time="0.001" /><testcase classname="tests.test_manifest_signature" name="test_verify_accepts_signed_manifest" time="0.002" /><testcase classname="tests.test_manifest_signature" name="test_verify_rejects_tampered_signed_manifest" time="0.002" /><testcase classname="tests.test_negative_zip_tamper" name="test_verify_fails_for_tampered_zip_artifact" time="0.004" /><testcase classname="tests.test_pdf_artifact" name="test_capture_creates_pdf_artifact" time="0.502"><failure message="playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell&#10;╔════════════════════════════════════════════════════════════╗&#10;║ Looks like Playwright was just installed or updated.       ║&#10;║ Please run the following command to download new browsers: ║&#10;║                                                            ║&#10;║     playwright install                                     ║&#10;║                                                            ║&#10;║ &lt;3 Playwright Team                                         ║&#10;╚════════════════════════════════════════════════════════════╝">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_pdf_artif0')
+
+    def test_capture_creates_pdf_artifact(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+&gt;           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_pdf_artifact.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fa5a1762510&gt;
+cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fa5a1710f40&gt;
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ &lt;3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error</failure></testcase><testcase classname="tests.test_private_key_packaging" name="test_evidence_zip_excludes_private_key" time="0.001" /><testcase classname="tests.test_reporting" name="test_reporting_files_are_created" time="0.002" /><testcase classname="tests.test_trace_artifacts" name="test_capture_creates_har_and_trace_artifacts" time="0.502"><failure message="playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell&#10;╔════════════════════════════════════════════════════════════╗&#10;║ Looks like Playwright was just installed or updated.       ║&#10;║ Please run the following command to download new browsers: ║&#10;║                                                            ║&#10;║     playwright install                                     ║&#10;║                                                            ║&#10;║ &lt;3 Playwright Team                                         ║&#10;╚════════════════════════════════════════════════════════════╝">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_har_and_t0')
+
+    def test_capture_creates_har_and_trace_artifacts(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+&gt;           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_trace_artifacts.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fa5a1763dd0&gt;
+cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fa5a1711ee0&gt;
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ &lt;3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error</failure></testcase><testcase classname="tests.test_verify.TestVerify" name="test_verify_fails_when_file_is_tampered" time="0.001" /><testcase classname="tests.test_verify.TestVerify" name="test_verify_succeeds_when_files_are_untouched" time="0.001" /></testsuite></testsuites>

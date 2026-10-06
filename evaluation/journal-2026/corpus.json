@@ -1,0 +1,22 @@
+[
+ {"id":"institution-europa","category":"institutional","url":"https://european-union.europa.eu/index_en","rationale":"Multilingual institutional portal"},
+ {"id":"institution-nasa","category":"institutional","url":"https://www.nasa.gov/","rationale":"Media-rich public institution"},
+ {"id":"institution-uab","category":"institutional","url":"https://portal.uab.pt/","rationale":"Portuguese university portal"},
+ {"id":"institution-cncs","category":"institutional","url":"https://www.cncs.gov.pt/","rationale":"Portuguese cybersecurity institution"},
+ {"id":"news-rtp","category":"news","url":"https://www.rtp.pt/noticias/","rationale":"Portuguese public broadcaster"},
+ {"id":"news-publico","category":"news","url":"https://www.publico.pt/","rationale":"Portuguese commercial news and consent handling"},
+ {"id":"news-bbc","category":"news","url":"https://www.bbc.com/news","rationale":"International media portal"},
+ {"id":"news-reuters","category":"news","url":"https://www.reuters.com/","rationale":"International commercial news portal"},
+ {"id":"docs-python","category":"documentation","url":"https://docs.python.org/3/","rationale":"Structured technical documentation"},
+ {"id":"docs-mdn","category":"documentation","url":"https://developer.mozilla.org/en-US/docs/Web","rationale":"Web technology reference"},
+ {"id":"docs-fastapi","category":"documentation","url":"https://fastapi.tiangolo.com/","rationale":"Framework documentation"},
+ {"id":"docs-playwright","category":"documentation","url":"https://playwright.dev/python/","rationale":"Browser automation documentation"},
+ {"id":"reference-wikipedia","category":"reference","url":"https://en.wikipedia.org/wiki/Digital_forensics","rationale":"Encyclopedia article"},
+ {"id":"reference-gutenberg","category":"reference","url":"https://www.gutenberg.org/","rationale":"Digital book catalogue"},
+ {"id":"reference-archive","category":"reference","url":"https://archive.org/","rationale":"Digital archive portal"},
+ {"id":"reference-openlibrary","category":"reference","url":"https://openlibrary.org/","rationale":"Interactive bibliographic catalogue"},
+ {"id":"service-github","category":"web-service","url":"https://github.com/nepttunus/Osint-evidence-preservation","rationale":"Public repository interface"},
+ {"id":"service-stackoverflow","category":"web-service","url":"https://stackoverflow.com/questions","rationale":"Question and answer interface"},
+ {"id":"service-openstreetmap","category":"web-service","url":"https://www.openstreetmap.org/","rationale":"Interactive map interface"},
+ {"id":"service-npm","category":"web-service","url":"https://www.npmjs.com/","rationale":"Package registry search interface"}
+]

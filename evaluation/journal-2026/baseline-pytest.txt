@@ -1,0 +1,193 @@
+F........F..F..                                                          [100%]
+=================================== FAILURES ===================================
+_______________ test_capture_creates_http_and_console_artifacts ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_http_and_0')
+
+    def test_capture_creates_http_and_console_artifacts(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+>           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_capture_artifacts.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7fa5a2209190>
+cb = <function Channel.send.<locals>.<lambda> at 0x7fa5a2242480>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ <3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error
+______________________ test_capture_creates_pdf_artifact _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_pdf_artif0')
+
+    def test_capture_creates_pdf_artifact(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+>           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_pdf_artifact.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7fa5a1762510>
+cb = <function Channel.send.<locals>.<lambda> at 0x7fa5a1710f40>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ <3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error
+_________________ test_capture_creates_har_and_trace_artifacts _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-1/test_capture_creates_har_and_t0')
+
+    def test_capture_creates_har_and_trace_artifacts(tmp_path):
+        server, thread = start_test_server()
+    
+        try:
+            host, port = server.server_address
+            url = f"http://{host}:{port}/"
+    
+>           result = capture_url(
+                url=url,
+                output_dir=tmp_path,
+                timeout_ms=10000,
+                headless=True,
+            )
+
+tests/test_trace_artifacts.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+engine/src/capture.py:63: in capture_url
+    browser = playwright.chromium.launch(headless=headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:14566: in launch
+    self._sync(
+.venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py:97: in launch
+    await self._channel.send(
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7fa5a1763dd0>
+cb = <function Channel.send.<locals>.<lambda> at 0x7fa5a1711ee0>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell
+E           ╔════════════════════════════════════════════════════════════╗
+E           ║ Looks like Playwright was just installed or updated.       ║
+E           ║ Please run the following command to download new browsers: ║
+E           ║                                                            ║
+E           ║     playwright install                                     ║
+E           ║                                                            ║
+E           ║ <3 Playwright Team                                         ║
+E           ╚════════════════════════════════════════════════════════════╝
+
+.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:559: Error
+=========================== short test summary info ============================
+FAILED tests/test_capture_artifacts.py::test_capture_creates_http_and_console_artifacts
+FAILED tests/test_pdf_artifact.py::test_capture_creates_pdf_artifact - playwr...
+FAILED tests/test_trace_artifacts.py::test_capture_creates_har_and_trace_artifacts
+3 failed, 12 passed in 1.98s

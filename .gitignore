@@ -21,3 +21,5 @@ entrega_final/provas/
 
 output/_private_keys/
 **/private_key.pem
+**/_private_keys/
+evaluation/journal-2026/resultados*/

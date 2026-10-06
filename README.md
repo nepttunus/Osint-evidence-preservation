@@ -194,3 +194,15 @@ A suite de testes automáticos foi também reforçada com um teste de empacotame
 Resultado final da validação:
 
 15 passed
+
+## Validação alargada para o artigo (outubro de 2026)
+
+O resultado de 15 testes acima corresponde à validação original. A revisão para o artigo acrescenta uma correção que torna obrigatória a assinatura do manifesto e uma avaliação automatizada com páginas controladas e sites reais.
+
+- A suite sem browser da versão corrigida passou 22 testes, incluindo dez novos casos de regressão.
+- Foram executadas 87 tentativas de captura: nove cenários controlados e 20 URLs públicas, com três repetições.
+- Foram produzidos 27 pacotes controlados e 44 pacotes de sites reais. Os cenários controlados satisfizeram todas as asserções em 24/27 execuções.
+- As 142 verificações de diretoria/ZIP intactos passaram. As 852 verificações de entradas modificadas foram rejeitadas.
+- O cenário de conteúdo inserido após três segundos falhou as verificações de conteúdo. Seis pacotes de sites reais preservaram respostas HTTP de acesso negado/erro. A integridade do pacote não demonstra completude da aquisição.
+
+Os resultados completos, ambientes, limitações e comandos de reprodução encontram-se em [evaluation/journal-2026](evaluation/journal-2026/README.md). Os testes com browser dessa avaliação usam Playwright 1.63.0 no Ubuntu 26.04. Não se afirma uma nova execução da suite completa de 25 testes no mesmo ambiente.

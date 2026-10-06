@@ -3,6 +3,7 @@ from pathlib import Path
 from src.manifest import build_manifest
 from src.package import create_zip_archive
 from src.verify import verify_path
+from src.signature import ensure_keypair, sign_manifest
 
 
 def test_verify_fails_for_tampered_zip_artifact(tmp_path):
@@ -21,6 +22,8 @@ def test_verify_fails_for_tampered_zip_artifact(tmp_path):
     }
 
     build_manifest(run_dir, capture_metadata)
+    private_key, _ = ensure_keypair(run_dir / "keys")
+    sign_manifest(run_dir / "manifest.json", private_key)
 
     original_zip = create_zip_archive(run_dir)
     assert original_zip.exists()

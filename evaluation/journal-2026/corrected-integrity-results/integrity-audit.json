@@ -1,0 +1,535 @@
+{
+  "executed_at": "2026-10-06T13:08:41.886630+00:00",
+  "kind": "browser-independent synthetic integrity audit; not capture validation",
+  "repetitions": 3,
+  "original_checks": 6,
+  "original_accepted": 6,
+  "tampered_checks": 36,
+  "tampered_rejected": 36,
+  "by_variant": {
+    "artifact_and_digest_modified": {
+      "total": 6,
+      "rejected": 6
+    },
+    "artifact_digest_modified_signature_removed": {
+      "total": 6,
+      "rejected": 6
+    },
+    "artifact_modified": {
+      "total": 6,
+      "rejected": 6
+    },
+    "artifact_removed": {
+      "total": 6,
+      "rejected": 6
+    },
+    "manifest_modified": {
+      "total": 6,
+      "rejected": 6
+    },
+    "signature_removed": {
+      "total": 6,
+      "rejected": 6
+    }
+  },
+  "records": [
+    {
+      "repetition": 1,
+      "original_directory": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.0005159180000191554
+      },
+      "original_zip": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.0014041429999451793
+      },
+      "tampering": [
+        {
+          "variant": "artifact_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0004393250001157867
+        },
+        {
+          "variant": "artifact_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0007686789999752364
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0002563170000939863
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0006356140002026223
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0003129500000795815
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0007375539998975
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.00038183099968591705
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0006884109998281929
+        },
+        {
+          "variant": "signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 3.665300027932972e-05
+        },
+        {
+          "variant": "signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.00047780199975022697
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 3.681399994093226e-05
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.0004992330000277434
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "original_directory": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.0003138910001325712
+      },
+      "original_zip": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.000927321999824926
+      },
+      "tampering": [
+        {
+          "variant": "artifact_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0006403209999916726
+        },
+        {
+          "variant": "artifact_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0013960510000288195
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.00026181400016866974
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0009479719997216307
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.00026201500031675096
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.001256556000043929
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0002725899998949899
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0007251949996316398
+        },
+        {
+          "variant": "signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 3.949799975089263e-05
+        },
+        {
+          "variant": "signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.000634682000054454
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 3.881699967678287e-05
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.00040609600000607315
+        }
+      ]
+    },
+    {
+      "repetition": 3,
+      "original_directory": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.0003611310003179824
+      },
+      "original_zip": {
+        "ok": true,
+        "checked_files": 2,
+        "errors": [],
+        "exception": null,
+        "seconds": 0.0007590750001327251
+      },
+      "tampering": [
+        {
+          "variant": "artifact_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.00031600399961462244
+        },
+        {
+          "variant": "artifact_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Hash inválido: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.0008496089999425749
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.00027021699997931137
+        },
+        {
+          "variant": "artifact_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 1,
+          "errors": [
+            "Ficheiro em falta: artifacts/page.html"
+          ],
+          "exception": null,
+          "seconds": 0.000950786999965203
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0002826449999702163
+        },
+        {
+          "variant": "manifest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0007598259999213042
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0006487030000243976
+        },
+        {
+          "variant": "artifact_and_digest_modified",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 2,
+          "errors": [
+            "Assinatura do manifesto inválida"
+          ],
+          "exception": null,
+          "seconds": 0.0007644629999958852
+        },
+        {
+          "variant": "signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 7.903599998826394e-05
+        },
+        {
+          "variant": "signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.0006864480001240736
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "directory",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 3.616399999373243e-05
+        },
+        {
+          "variant": "artifact_digest_modified_signature_removed",
+          "form": "zip",
+          "rejected": true,
+          "ok": false,
+          "checked_files": 0,
+          "errors": [
+            "Assinatura do manifesto em falta"
+          ],
+          "exception": null,
+          "seconds": 0.0004519140002230415
+        }
+      ]
+    }
+  ],
+  "tested_files_sha256": {
+    "engine/src/verify.py": "c0bbbfa70d077ea09940b579c7251373e5309db9a680403cc63be03f8949c7f0",
+    "engine/src/signature.py": "670f773d10c2dc2f3a9098423e4dd7e61f7c97c3b5c23e6a37a9cd7c709442e4",
+    "engine/src/manifest.py": "5f63739da0b6d0e3a330dce496f295d1f4b6bf65660a639373a3cd6aed25ce61",
+    "engine/src/package.py": "189e55f90b9c4b84fc422e302e313029ac28042eeec88ed2885fd6ea5e194663"
+  },
+  "base_commit": "abe721dfb95ce812b35d10eeaed286f2079e10e9",
+  "tested_source_commit": "a998681ab00290b9619bbb33dbb26e1de76d9174",
+  "commit_note": "The corrected source was tested in a worktree and committed unchanged after execution."
+}
