@@ -7,6 +7,7 @@ import unittest
 
 from src.hashing import sha256_file
 from src.verify import verify_run_directory
+from src.signature import ensure_keypair, sign_manifest
 
 
 class TestVerify(unittest.TestCase):
@@ -29,6 +30,8 @@ class TestVerify(unittest.TestCase):
                 ]
             }
             (run_dir / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            private_key, _ = ensure_keypair(run_dir / "keys")
+            sign_manifest(run_dir / "manifest.json", private_key)
 
             result = verify_run_directory(run_dir)
             self.assertTrue(result.ok)
@@ -54,6 +57,8 @@ class TestVerify(unittest.TestCase):
                 ]
             }
             (run_dir / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            private_key, _ = ensure_keypair(run_dir / "keys")
+            sign_manifest(run_dir / "manifest.json", private_key)
 
             file_path.write_text("<html>alterado</html>", encoding="utf-8")
 
