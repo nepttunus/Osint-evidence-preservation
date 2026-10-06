@@ -1,0 +1,62 @@
+{
+  "baseline_commit": "abe721dfb95ce812b35d10eeaed286f2079e10e9",
+  "corrected_local_commit": "a998681ab00290b9619bbb33dbb26e1de76d9174",
+  "upstream_modified": false,
+  "browser_captures_executed": 87,
+  "planned_fixture_attempts": 27,
+  "planned_live_attempts": 60,
+  "baseline_tests": {
+    "passed": 12,
+    "browser_startup_blocked": 3
+  },
+  "corrected_tests": {
+    "passed": 22,
+    "browser_tests_excluded": 3
+  },
+  "signature_audit": {
+    "original_controls_accepted": "6/6",
+    "original_modified_rejected": "24/36",
+    "corrected_controls_accepted": "6/6",
+    "corrected_modified_rejected": "36/36"
+  },
+  "harness_validation": "HTTP smoke checks and 87 user-executed browser capture attempts; raw results retained unchanged.",
+  "patch_sha256": "b777c8d89b7b756c34ef826957f7006f73b48da4305285c3dc3c52ad34e54965",
+  "browser_capture_results": "browser-results-20261006/",
+  "browser_capture_metrics": {
+    "attempts": 87,
+    "fixture_attempts": 27,
+    "fixture_packages": 27,
+    "fixture_all_assertions_passed": 24,
+    "fixture_individual_assertions": {
+      "passed": 114,
+      "total": 123
+    },
+    "live_attempts": 60,
+    "live_packages": 44,
+    "live_http_200": 38,
+    "live_access_error_packages": 6,
+    "navigation_timeouts_30s": 8,
+    "worker_timeouts_90s": 8,
+    "intact_checks_accepted": 142,
+    "intact_checks_total": 142,
+    "tampered_checks_rejected": 852,
+    "tampered_checks_total": 852,
+    "verifier_exceptions": 0,
+    "engine_files_sha256_match": true,
+    "fixtures_sha256_match": true,
+    "corpus_sha256_match": true,
+    "content_review": "No raw browser evidence packages supplied; no independent content-fidelity review claimed."
+  },
+  "browser_environment": {
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "playwright": "1.63.0",
+    "chromium": "153.0.8010.12",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43"
+  },
+  "raw_input_sha256": {
+    "results.json": "1ff2edc93edb40ef85f6c5bac25c2457faaba693c21fd7aaa607e0b011cafbe6",
+    "results.csv": "23d389c11abd9443991dc9def37fff4d0caf01cb619c0abbc64e2c423d076a50",
+    "summary.md": "8b75181ae6b2eda9a8d07c2b0397eb52b38edfd2ff7512a63ccd94a8911b5d0e",
+    "environment.json": "0f8f31c69628138d0f928afcd3840004e89794dc1e9690198ccb31609270104b"
+  }
+}

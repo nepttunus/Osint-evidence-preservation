@@ -1,0 +1,25 @@
+{
+  "attempts": 87,
+  "fixture_attempts": 27,
+  "fixture_packages": 27,
+  "fixture_all_assertions_passed": 24,
+  "fixture_individual_assertions": {
+    "passed": 114,
+    "total": 123
+  },
+  "live_attempts": 60,
+  "live_packages": 44,
+  "live_http_200": 38,
+  "live_access_error_packages": 6,
+  "navigation_timeouts_30s": 8,
+  "worker_timeouts_90s": 8,
+  "intact_checks_accepted": 142,
+  "intact_checks_total": 142,
+  "tampered_checks_rejected": 852,
+  "tampered_checks_total": 852,
+  "verifier_exceptions": 0,
+  "engine_files_sha256_match": true,
+  "fixtures_sha256_match": true,
+  "corpus_sha256_match": true,
+  "content_review": "No raw browser evidence packages supplied; no independent content-fidelity review claimed."
+}
