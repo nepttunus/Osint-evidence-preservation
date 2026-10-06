@@ -1,208 +1,150 @@
-# Plataforma Modular de Captura e Preservação de Evidência Digital para OSINT
+# Modular Platform for OSINT Digital Evidence Capture and Preservation
 
-Plataforma modular para captura e preservação de evidência digital web em contexto OSINT.  
-A solução combina uma **browser extension** para interação com o utilizador com um **motor local de captura e preservação**, responsável pela recolha de artefactos, geração de metadados, hashing, manifest, assinatura, cadeia de custódia e empacotamento final.
+Modular platform for capturing and preserving web-based digital evidence in OSINT contexts. The solution combines a **browser extension** for user interaction with a **local capture and preservation engine** responsible for collecting artefacts, generating metadata, hashing, creating and signing the manifest, recording chain of custody, and producing the final package.
 
-## Visão geral
+## Overview
 
-O objetivo do projeto é permitir a recolha estruturada de evidência digital a partir do browser, preservando contexto técnico e mecanismos básicos de integridade e verificação posterior.
+The project supports structured collection of digital evidence from a browser while preserving technical context and basic mechanisms for subsequent integrity verification.
 
-### Arquitetura
+### Architecture
 
-    [Browser]
-       |
-       v
-    [Browser Extension]
-       |
-       v
-    [Local API / Bridge]
-       |
-       v
-    [Motor Local de Captura e Preservação]
-       |
-       +--> screenshot
-       +--> HTML
-       +--> PDF
-       +--> metadados
-       +--> manifest
-       +--> assinatura
-       +--> cadeia de custódia
-       |
-       v
-    [Pacote ZIP / output]
+    [Browser] -> [Browser Extension] -> [Local API / Bridge]
+                                      -> [Local Capture and Preservation Engine]
+                                         +-- screenshot, HTML, PDF
+                                         +-- metadata, manifest, signature
+                                         +-- chain of custody
+                                      -> [ZIP package / output]
 
-## Funcionalidades principais
+## Main features
 
-- Captura iniciada diretamente a partir do browser
-- Obtenção do URL ativo no separador corrente
-- Geração de screenshot, HTML, PDF, HAR e trace
-- Recolha de metadados técnicos da execução
-- Cálculo de hashes e criação de manifest
-- Assinatura do manifest
-- Registo de cadeia de custódia
-- Geração de relatórios auxiliares
-- Empacotamento final em ZIP
-- Verificação posterior de integridade sobre pasta ou ZIP
+- Capture initiated directly from the browser
+- Retrieval of the active tab URL
+- Generation of screenshot, HTML, PDF, HAR and trace artefacts
+- Collection of technical execution metadata
+- Hash calculation and manifest creation
+- Manifest signing
+- Chain-of-custody recording
+- Generation of auxiliary reports
+- Final ZIP packaging
+- Subsequent integrity verification of a directory or ZIP package
 
-## Pré-requisitos
+## Requirements
 
-- Python 3.9 ou superior
-- Ambiente virtual Python
-- Dependências em `requirements.txt`
-- Playwright com Chromium instalado
-- Google Chrome ou Microsoft Edge para a extensão
+- Python 3.9 or later
+- Python virtual environment
+- Dependencies in `requirements.txt`
+- Playwright with Chromium installed
+- Google Chrome or Microsoft Edge for the extension
 
-## Instalação
+## Installation
 
-Criar e ativar ambiente virtual:
+Create and activate a virtual environment:
 
     python -m venv .venv
     source .venv/bin/activate
 
-Instalar dependências:
+Install dependencies:
 
     pip install -r requirements.txt
     python -m playwright install chromium
 
-## Arranque do motor local
+## Starting the local engine
 
-Executar a API local:
+Start the local API:
 
     uvicorn engine.api.app:app --host 127.0.0.1 --port 8000 --reload
 
-Verificação rápida do serviço:
+Quick service check:
 
     curl http://127.0.0.1:8000/health
 
-## Carregamento da browser extension
+## Loading the browser extension
 
-1. Abrir `chrome://extensions/` ou `edge://extensions/`
-2. Ativar **Developer mode**
-3. Selecionar **Load unpacked**
-4. Escolher a pasta `extension/`
+1. Open `chrome://extensions/` or `edge://extensions/`
+2. Enable **Developer mode**
+3. Select **Load unpacked**
+4. Choose the `extension/` directory
 
-## Fluxo de utilização
+## Usage flow
 
-1. Abrir uma página Web no browser
-2. Abrir a browser extension
-3. Confirmar o URL ativo apresentado no popup
-4. Clicar em **Capturar evidência**
-5. A extensão envia o pedido ao motor local
-6. O motor local executa a captura e gera os artefactos
-7. O popup apresenta a pasta de execução e o caminho do ZIP final
+1. Open a web page in the browser
+2. Open the browser extension
+3. Confirm the active URL shown in the popup
+4. Click **Capture evidence**
+5. The extension sends the request to the local engine
+6. The local engine captures the page and generates the artefacts
+7. The popup displays the execution directory and final ZIP path
 
-## Execução direta via CLI
+## Direct CLI execution
 
-Captura simples:
+Simple capture:
 
     python -m engine.src.main capture https://example.com
 
-Captura com opções adicionais:
+Capture with additional options:
 
     python -m engine.src.main capture https://example.com --output-dir output --timeout-ms 30000 --actor cli_user
 
-## Verificação de integridade
+## Integrity verification
 
-Verificar uma pasta de execução:
+Verify an execution directory:
 
-    python -m engine.src.main verify output/<nome_da_execucao>
+    python -m engine.src.main verify output/<execution_name>
 
-Verificar o ZIP final:
+Verify the final ZIP package:
 
-    python -m engine.src.main verify output/<nome_da_execucao>/evidence_bundle.zip
+    python -m engine.src.main verify output/<execution_name>/evidence_bundle.zip
 
-## Testes
+## Tests
 
-Executar a suite de testes:
+Run the test suite:
 
     python -m pytest -q
 
-## Estrutura do projeto
+## Project structure
 
     .
-    ├── engine/
-    │   ├── api/
-    │   │   └── app.py
-    │   └── src/
-    │       ├── capture.py
-    │       ├── cli.py
-    │       ├── custody.py
-    │       ├── hashing.py
-    │       ├── main.py
-    │       ├── manifest.py
-    │       ├── package.py
-    │       ├── reporting.py
-    │       ├── service.py
-    │       ├── signature.py
-    │       └── verify.py
-    ├── extension/
-    │   ├── manifest.json
-    │   ├── popup.html
-    │   └── popup.js
+    ├── engine/ (API and capture, packaging, signing and verification code)
+    ├── extension/ (browser extension)
     ├── docs/
+    ├── evaluation/journal-2026/ (reproducible journal evaluation)
     ├── tests/
     └── output/
 
-## Exemplo de output
+## Example output
 
-Cada execução gera uma pasta estruturada semelhante a esta:
+Each execution produces a structured directory containing capture artefacts, chain-of-custody data, a signed manifest, the public key, reports and an evidence ZIP package.
 
-    output/example.com_YYYYMMDDTHHMMSSZ/
-    ├── artifacts/
-    │   ├── capture_metadata.json
-    │   ├── console_logs.json
-    │   ├── http_metadata.json
-    │   ├── network.har
-    │   ├── page.html
-    │   ├── page.pdf
-    │   ├── screenshot.png
-    │   └── trace.zip
-    ├── chain_of_custody.json
-    ├── evidence_bundle.zip
-    ├── keys/
-    │   └── public_key.pem
-    ├── manifest.json
-    ├── manifest.sig
-    ├── report.json
-    └── report.md
+## Current status
 
-## Estado atual
+The project is a **functional MVP** with a browser extension, local API, local capture and preservation engine, actual artefact generation, and integrity verification.
 
-O projeto corresponde a um **MVP funcional** com:
-- browser extension
-- API local
-- motor local de captura e preservação
-- geração real de artefactos
-- verificação de integridade
+## Current limitations
 
-## Limitações atuais
+- no multi-user support
+- no remote backend
+- no external qualified timestamping
+- no distributed case management
+- simplified chain of custody compared with formal forensic scenarios
 
-- sem multiutilizador
-- sem backend remoto
-- sem timestamping qualificado externo
-- sem gestão distribuída de casos
-- cadeia de custódia simplificada face a cenários forenses formais
+## Final validation update
 
-## Atualização final de validação
+Following supervisor feedback, the project was updated to improve private-key handling.
 
-Na sequência do feedback do orientador, o projeto foi atualizado para melhorar o tratamento da chave privada.
+The private key is kept outside the evidence package and is no longer included in the generated ZIP file. The ZIP package contains only the public key required for subsequent verification.
 
-A chave privada passou a ser mantida fora do pacote de evidência e deixou de ser incluída no ficheiro ZIP gerado. O pacote ZIP contém apenas a chave pública necessária para verificação posterior. Esta alteração melhora o modelo de integridade e autenticidade, porque a posse do pacote de evidência deixa de incluir o material privado utilizado para assinar o manifesto.
+The automated test suite was also extended with a packaging test confirming that `private_key.pem` is excluded from the evidence ZIP while `public_key.pem` remains available for verification.
 
-A suite de testes automáticos foi também reforçada com um teste de empacotamento que valida que o ficheiro `private_key.pem` é excluído do ZIP de evidência, enquanto o ficheiro `public_key.pem` permanece disponível para verificação.
+Final result of the original validation: **15 passed**.
 
-Resultado final da validação:
+## Extended journal evaluation (October 2026)
 
-15 passed
+The journal revision adds a correction that makes manifest signatures mandatory and an automated evaluation with controlled pages and live public websites.
 
-## Validação alargada para o artigo (outubro de 2026)
+- The corrected no-browser suite passed 22 tests, including ten new regression cases.
+- 87 capture attempts were executed: nine controlled scenarios and 20 public URLs, with three repetitions per target.
+- 27 controlled packages and 44 live-site packages were produced. Controlled assertions passed in 24/27 executions.
+- All 142 intact directory/ZIP verification checks passed. All 852 modified-input checks were rejected.
+- Content inserted after three seconds was missed in all three repetitions. Six live-site packages preserved access-denied or error responses. Package integrity does not establish acquisition completeness.
 
-O resultado de 15 testes acima corresponde à validação original. A revisão para o artigo acrescenta uma correção que torna obrigatória a assinatura do manifesto e uma avaliação automatizada com páginas controladas e sites reais.
-
-- A suite sem browser da versão corrigida passou 22 testes, incluindo dez novos casos de regressão.
-- Foram executadas 87 tentativas de captura: nove cenários controlados e 20 URLs públicas, com três repetições.
-- Foram produzidos 27 pacotes controlados e 44 pacotes de sites reais. Os cenários controlados satisfizeram todas as asserções em 24/27 execuções.
-- As 142 verificações de diretoria/ZIP intactos passaram. As 852 verificações de entradas modificadas foram rejeitadas.
-- O cenário de conteúdo inserido após três segundos falhou as verificações de conteúdo. Seis pacotes de sites reais preservaram respostas HTTP de acesso negado/erro. A integridade do pacote não demonstra completude da aquisição.
-
-Os resultados completos, ambientes, limitações e comandos de reprodução encontram-se em [evaluation/journal-2026](evaluation/journal-2026/README.md). Os testes com browser dessa avaliação usam Playwright 1.63.0 no Ubuntu 26.04. Não se afirma uma nova execução da suite completa de 25 testes no mesmo ambiente.
+Complete results, environments, limitations and reproduction commands are available in [evaluation/journal-2026](evaluation/journal-2026/README.md). The browser evaluation uses Playwright 1.63.0 on Ubuntu 26.04. No claim is made that the complete 25-test suite was rerun in the same environment.
