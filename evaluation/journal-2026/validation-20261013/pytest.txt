@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /home/nepttunus/validacao-artigo/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/nepttunus/validacao-artigo/projeto-artigo
+plugins: anyio-4.15.1
+collecting ... collected 25 items
+
+tests/test_capture_artifacts.py::test_capture_creates_http_and_console_artifacts PASSED [  4%]
+tests/test_chain_of_custody.py::test_chain_of_custody_is_created_and_listed_in_manifest PASSED [  8%]
+tests/test_custody_actor_events.py::test_cli_capture_accepts_actor_argument PASSED [ 12%]
+tests/test_custody_actor_events.py::test_chain_of_custody_records_actor_and_extended_events PASSED [ 16%]
+tests/test_hashing.py::TestHashing::test_sha256_file_matches_hashlib PASSED [ 20%]
+tests/test_manifest.py::test_build_manifest_includes_richer_file_metadata PASSED [ 24%]
+tests/test_manifest_signature.py::test_verify_accepts_signed_manifest PASSED [ 28%]
+tests/test_manifest_signature.py::test_verify_rejects_tampered_signed_manifest PASSED [ 32%]
+tests/test_negative_zip_tamper.py::test_verify_fails_for_tampered_zip_artifact PASSED [ 36%]
+tests/test_pdf_artifact.py::test_capture_creates_pdf_artifact PASSED     [ 40%]
+tests/test_private_key_packaging.py::test_evidence_zip_excludes_private_key PASSED [ 44%]
+tests/test_reporting.py::test_reporting_files_are_created PASSED         [ 48%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[remove_signature-False] PASSED [ 52%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[remove_signature-True] PASSED [ 56%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[rewrite_then_remove-False] PASSED [ 60%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[rewrite_then_remove-True] PASSED [ 64%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[invalid_signature-False] PASSED [ 68%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[invalid_signature-True] PASSED [ 72%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[missing_public_key-False] PASSED [ 76%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[missing_public_key-True] PASSED [ 80%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[invalid_manifest-False] PASSED [ 84%]
+tests/test_required_signature.py::test_signed_package_cannot_be_downgraded[invalid_manifest-True] PASSED [ 88%]
+tests/test_trace_artifacts.py::test_capture_creates_har_and_trace_artifacts PASSED [ 92%]
+tests/test_verify.py::TestVerify::test_verify_fails_when_file_is_tampered PASSED [ 96%]
+tests/test_verify.py::TestVerify::test_verify_succeeds_when_files_are_untouched PASSED [100%]
+
+- generated xml file: /home/nepttunus/validacao-artigo/testes-completos-20261013-185747/pytest.xml -
+============================== 25 passed in 6.22s ==============================
